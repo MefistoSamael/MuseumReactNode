@@ -1,11 +1,12 @@
 const Router = require('express')
 const router = new Router()
 const expositionController = require('../controllers/expositionController')
+const checkRoleMiddleware = require('../middleware/checkRoleMiddleware')
 
-router.post('/', expositionController.create)
-router.get('/', expositionController.getAll)
-router.get('/:id', expositionController.getById)
-router.put('/:id', expositionController.update)
-router.delete('/:id', expositionController.delete)
+    router.post('/', checkRoleMiddleware('USER'), expositionController.create)
+router.get('/',  expositionController.getAll)
+router.get('/:id',  expositionController.getById)
+router.put('/:id', checkRoleMiddleware('USER'), expositionController.update)
+router.delete('/:id', checkRoleMiddleware('USER'), expositionController.delete)
 
 module.exports = router

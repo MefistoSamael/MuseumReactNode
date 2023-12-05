@@ -45,9 +45,12 @@ class ExhibitController {
 
     async getAll(req, res, next) {
         try {
-            const {expositionId} = req.body;
+            const expositionId = req.query.expositionId;
 
             var exhibits = new Array(0);
+
+            console.log("expositionId");
+            console.log(expositionId);
 
             // конвертуируем массив строк в массив чисел
             var artFormIds = req.body.artFormIds;
@@ -97,12 +100,14 @@ class ExhibitController {
             }
             else
             {
-                if (expositionId)
+                if (expositionId){
                     exhibits = await  Exhibit.findAll({where: {expositionId}});
+                    console.log(exhibits);
+                }
+
                 else
                     exhibits = await Exhibit.findAll();
             }
-
 
 
             return res.json(exhibits);
