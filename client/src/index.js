@@ -10,7 +10,7 @@ ReactDOM.render(
         user: new UserStore(),
         exposition: new ExpositionStore(),
     }}>
-        <App />,
+        <App />
     </Context.Provider>,
 
     document.getElementById('root')

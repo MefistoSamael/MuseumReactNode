@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {$authHost} from "../http";
 import ExhibitComponent from "./ExhibitComponent";
 import {observer} from "mobx-react-lite";
+import {EXPOSITION_ROUTE} from "../utils/consts";
+import {v4} from "uuid";
 
 const ExpositionItem =observer (({exposition}) => {
 
@@ -31,16 +33,12 @@ const ExpositionItem =observer (({exposition}) => {
     if (!(exhibits instanceof Array))
         return;
 
+    const certainExpositionRoute = `${EXPOSITION_ROUTE}/${exposition.id}`
+
     return (
-        <div>
-            <label> Name - {exposition.name}</label> <br/>
+        <div key={v4()}>
+            <a href={certainExpositionRoute}> Name - {exposition.name}</a> <br/>
             <label> Exposition theme - {theme.name}</label><br/>
-            <label> Exhibits: </label>
-            <ol>
-                {exhibits.map(item =>
-                    <ExhibitComponent key={item.Id} exhibit={item}/>)
-                }
-            </ol>
         </div>
     );
 });

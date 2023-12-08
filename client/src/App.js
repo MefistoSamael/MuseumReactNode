@@ -13,7 +13,6 @@ const App = observer (() => {
 
     if (localStorage.getItem('token') !== null)
     {
-
         useEffect(() => {
             check().then(data => {
                 user.setUser(true)

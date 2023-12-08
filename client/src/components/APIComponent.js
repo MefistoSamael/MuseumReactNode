@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-const APIComponent = () => {
+import {v4} from "uuid";
+function APIComponent () {
     const [image_url, setImageUrl] = useState('');
     const [setup, setSetup] = useState('');
     const [punchline, setPunchline] = useState('');
@@ -31,7 +32,7 @@ const APIComponent = () => {
 
 
     return (
-        <div>
+        <>
             <img src={image_url} alt="dog image" />
 
             <br/>
@@ -41,7 +42,7 @@ const APIComponent = () => {
             <br/>
             {setup}
             {punchline}
-        </div>
+        </>
     );
 };
 

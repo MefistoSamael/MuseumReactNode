@@ -3,6 +3,10 @@ import Context from "../Context";
 import {NavLink} from "react-router-dom";
 import {ADMIN_ROUTE, EXPOSITION_ROUTE, LOGIN_ROUTE, MUSEUM_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
+import {v4} from "uuid";
+
+
+
 
 const NavBar = observer(() => {
     const {user} = useContext(Context);
@@ -23,10 +27,14 @@ const NavBar = observer(() => {
                 <span> Date - {datetime}</span>
                 {user.isAuth ?
                     <div>
-                        <NavLink to={ADMIN_ROUTE} className="navbar-item">
-                            Admin panel
+                        <NavLink key={v4()} to={ADMIN_ROUTE} className="navbar-item">
+                            Admin panellllllllll
                         </NavLink>
-                        <NavLink to={MUSEUM_ROUTE} className="navbar-item" onClick={() => user.setIsAuth(false)}>
+                        <NavLink to={MUSEUM_ROUTE} className="navbar-item" onClick={() =>
+                        {
+                            user.setIsAuth(false);
+                            localStorage.removeItem('token');
+                        }}>
                             Exit
                         </NavLink>
                     </div>

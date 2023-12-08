@@ -8,6 +8,8 @@ const Museum = () => {
     return (
         <div className="body-content">
             <ExpositionList/>
+            <br/>
+            <br/>
             <APIComponent/>
         </div>
 

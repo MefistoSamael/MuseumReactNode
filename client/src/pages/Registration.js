@@ -63,9 +63,6 @@ class RegistrationForm extends Component{
         let {user} = this.context;
         return (
             <>
-                {user.isAuth ?
-                    <Redirect to={MUSEUM_ROUTE}/>
-                    :
                     <div className="body-content">
                         <h2>Регистрация</h2>
                         <form onSubmit={this.handleSubmit}>
@@ -83,7 +80,7 @@ class RegistrationForm extends Component{
                         </form>
                         <br/>
                         <a href={LOGIN_ROUTE}>Логин</a>
-                    </div>}
+                    </div>
             </>
 
 

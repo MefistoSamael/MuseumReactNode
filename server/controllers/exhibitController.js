@@ -49,9 +49,6 @@ class ExhibitController {
 
             var exhibits = new Array(0);
 
-            console.log("expositionId");
-            console.log(expositionId);
-
             // конвертуируем массив строк в массив чисел
             var artFormIds = req.body.artFormIds;
             if (artFormIds !== undefined)
@@ -102,7 +99,6 @@ class ExhibitController {
             {
                 if (expositionId){
                     exhibits = await  Exhibit.findAll({where: {expositionId}});
-                    console.log(exhibits);
                 }
 
                 else

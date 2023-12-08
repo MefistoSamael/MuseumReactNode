@@ -33,8 +33,8 @@ class ExpositionController{
 
     async getById(req, res, next){
         try{
-            const id = req.params.id;
-            var exposition = await Exposition.findByPk(id);
+            const {id} = req.params;
+            let exposition = await Exposition.findByPk(id);
 
             return res.json(exposition);
         } catch (error){
@@ -45,9 +45,11 @@ class ExpositionController{
 
     async update(req, res, next){
         try{
-            const id = req.params.id;
+            const {id} = req.params;
             const {name, themeId} = req.body;
 
+
+            console.log(themeId)
             const exhibit = await Exposition.update({ name, themeId}, {
                 where: {
                     id: id
