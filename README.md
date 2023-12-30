@@ -1,4 +1,3 @@
-<pre>
   This project was implemented according to the following requirements:
 
 Task
@@ -34,4 +33,3 @@ Ensure an acceptable appearance using CSS (without https://www.bootstrapcdn.com/
 Validate forms on both the server side (check for the possibility of email in userController.js) and the client side (Registration.js, Login.js).
 
 Restrict the usage of the project's API for unauthorized requests.
-</pre>
